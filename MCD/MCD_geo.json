@@ -1,0 +1,35 @@
+{
+  "width": 471,
+  "height": 330,
+  "cx": [
+    [ "APPARTENIR", 62 ],
+    [ "ETAPE", 188 ],
+    [ "ETAPE_ARR", 301 ],
+    [ "CATEGORIE", 62 ],
+    [ "ETAPE_DEP", 188 ],
+    [ "TRONCONS", 301 ],
+    [ "CONTENIR", 413 ],
+    [ "PARCOURS", 413 ]
+  ],
+  "cy": [
+    [ "APPARTENIR", 60 ],
+    [ "ETAPE", 60 ],
+    [ "ETAPE_ARR", 60 ],
+    [ "CATEGORIE", 169 ],
+    [ "ETAPE_DEP", 169 ],
+    [ "TRONCONS", 169 ],
+    [ "CONTENIR", 169 ],
+    [ "PARCOURS", 287 ]
+  ],
+  "shift": [
+    [ "APPARTENIR,ETAPE,0", 0 ],
+    [ "APPARTENIR,CATEGORIE,0", 0 ],
+    [ "ETAPE_ARR,TRONCONS,0", 0 ],
+    [ "ETAPE_ARR,ETAPE,0", 0 ],
+    [ "ETAPE_DEP,TRONCONS,0", 0 ],
+    [ "ETAPE_DEP,ETAPE,0", 0 ],
+    [ "CONTENIR,PARCOURS,0", 0 ],
+    [ "CONTENIR,TRONCONS,0", 0 ]
+  ],
+  "ratio": []
+}

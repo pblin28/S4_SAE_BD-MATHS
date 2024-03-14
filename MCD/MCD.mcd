@@ -1,0 +1,14 @@
+APPARTENIR, 0N ETAPE, 01 CATEGORIE
+ETAPE: code_Etape, num_Etape,latitude,longitude
+Etape_Arr, 01 TRONCONS, 11 ETAPE
+:
+
+CATEGORIE: id_Categorie,nom_Cat,description_Cat
+Etape_Dep, 01 TRONCONS, 11 ETAPE
+TRONCONS: id_Tr, nom_Tr,distance,Type_Sol,
+CONTENIR, 0N PARCOURS, 0N TRONCONS
+
+:
+:
+:
+PARCOURS: id_Parcours,nom_Parcours
