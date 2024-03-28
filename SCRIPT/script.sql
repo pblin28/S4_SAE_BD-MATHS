@@ -1,48 +1,40 @@
 CREATE TABLE CATEGORIE (
-  PRIMARY KEY (id_Categorie),
-  id_Categorie    VARCHAR(42) NOT NULL,
+  id_Categorie    NUMBER NOT NULL PRIMARY KEY,
   nom_Cat         VARCHAR(42),
-  description_Cat VARCHAR(42),
-  code_Etape      VARCHAR(42) NULL
+  desc_Cat VARCHAR(42),
 );
 
 CREATE TABLE CONTENIR (
-  PRIMARY KEY (id_Parcours, id_Tr),
-  id_Parcours VARCHAR(42) NOT NULL,
-  id_Tr       VARCHAR(42) NOT NULL
+  id_Parcours NUMBER,
+  id_Tr       NUMBER,
+  FOREIGN KEY (id_Parcours) REFERENCES PARCOURS (id_Parcours),
+  FOREIGN KEY (id_Tr) REFERENCES TRONCONS (id_Tr)
 );
 
 CREATE TABLE ETAPE (
-  PRIMARY KEY (code_Etape),
-  code_Etape VARCHAR(42) NOT NULL,
+  code_Etape NUMBER NOT NULL PRIMARY KEY,
+  nom_Etape VARCHAR(42),
   num_Etape  VARCHAR(42),
+  confort NUMBER,
   latitude   VARCHAR(42),
   longitude  VARCHAR(42),
-  id_Tr_1    VARCHAR(42) NOT NULL,
-  id_Tr_2    VARCHAR(42) NOT NULL,
-  UNIQUE (id_Tr_1),
-  UNIQUE (id_Tr_2)
+  villeEtape VARCHAR(42),
+  FOREIGN KEY (confort) REFERENCES CATEGORIE (id_Categorie)
 );
 
 CREATE TABLE PARCOURS (
-  PRIMARY KEY (id_Parcours),
-  id_Parcours  VARCHAR(42) NOT NULL,
+  id_Parcours  NUMBER PRIMARY KEY,
   nom_Parcours VARCHAR(42)
 );
 
 CREATE TABLE TRONCONS (
-  PRIMARY KEY (id_Tr),
-  id_Tr    VARCHAR(42) NOT NULL,
+  id_Tr    NUMBER NOT NULL PRIMARY KEY,
   nom_Tr   VARCHAR(42),
   distance VARCHAR(42),
-  Type_Sol VARCHAR(42)
+  Type_Sol VARCHAR(42),
+  depart NUMBER,
+  arrivee NUMBER,
+  FOREIGN KEY (depart) REFERENCES ETAPE (code_Etape),
+  FOREIGN KEY (arrivee) REFERENCES ETAPE (code_Etape)
 );
-
-ALTER TABLE CATEGORIE ADD FOREIGN KEY (code_Etape) REFERENCES ETAPE (code_Etape);
-
-ALTER TABLE CONTENIR ADD FOREIGN KEY (id_Tr) REFERENCES TRONCONS (id_Tr);
-ALTER TABLE CONTENIR ADD FOREIGN KEY (id_Parcours) REFERENCES PARCOURS (id_Parcours);
-
-ALTER TABLE ETAPE ADD FOREIGN KEY (id_Tr_2) REFERENCES TRONCONS (id_Tr);
-ALTER TABLE ETAPE ADD FOREIGN KEY (id_Tr_1) REFERENCES TRONCONS (id_Tr);
 
