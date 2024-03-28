@@ -1,14 +1,13 @@
+CREATE TABLE PARCOURS (
+  id_Parcours  NUMBER PRIMARY KEY,
+  nom_Parcours VARCHAR(42)
+);
+
+
 CREATE TABLE CATEGORIE (
   id_Categorie    NUMBER NOT NULL PRIMARY KEY,
   nom_Cat         VARCHAR(42),
   desc_Cat VARCHAR(42),
-);
-
-CREATE TABLE CONTENIR (
-  id_Parcours NUMBER,
-  id_Tr       NUMBER,
-  FOREIGN KEY (id_Parcours) REFERENCES PARCOURS (id_Parcours),
-  FOREIGN KEY (id_Tr) REFERENCES TRONCONS (id_Tr)
 );
 
 CREATE TABLE ETAPE (
@@ -22,11 +21,6 @@ CREATE TABLE ETAPE (
   FOREIGN KEY (confort) REFERENCES CATEGORIE (id_Categorie)
 );
 
-CREATE TABLE PARCOURS (
-  id_Parcours  NUMBER PRIMARY KEY,
-  nom_Parcours VARCHAR(42)
-);
-
 CREATE TABLE TRONCONS (
   id_Tr    NUMBER NOT NULL PRIMARY KEY,
   nom_Tr   VARCHAR(42),
@@ -37,4 +31,12 @@ CREATE TABLE TRONCONS (
   FOREIGN KEY (depart) REFERENCES ETAPE (code_Etape),
   FOREIGN KEY (arrivee) REFERENCES ETAPE (code_Etape)
 );
+
+CREATE TABLE CONTENIR (
+  id_Parcours NUMBER,
+  id_Tr       NUMBER,
+  FOREIGN KEY (id_Parcours) REFERENCES PARCOURS (id_Parcours),
+  FOREIGN KEY (id_Tr) REFERENCES TRONCONS (id_Tr)
+);
+
 
